@@ -1,37 +1,38 @@
-# JupyterLite Demo
+# COMP90016 JupyterLite
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://jupyterlite.github.io/demo)
+Browser-based Jupyter environment for COMP90016, deployed as a static website with GitHub Pages.
 
-JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
+## Scope
 
-## ✨ Try it in your browser ✨
+- Includes public course data from the companion public repository.
+- Includes starter notebooks under `notebooks/` for in-browser workflows.
+- Uses the Pyodide-backed Python kernel for stability.
 
-➡️ **https://jupyterlite.github.io/demo**
+Important: native command-line bioinformatics tools from the old conda/Binder environment (for example `bwa`, `samtools`, `blast`, `prokka`) are not runnable inside JupyterLite.
 
-![github-pages](https://user-images.githubusercontent.com/591645/120649478-18258400-c47d-11eb-80e5-185e52ff2702.gif)
+See [`COMPATIBILITY.md`](COMPATIBILITY.md) for the package/tool support matrix and fallback workflow.
 
-## Requirements
+## Local Build
 
-JupyterLite is being tested against modern web browsers:
+```bash
+python3 -m pip install -r requirements.txt
+jupyter lite build --contents content/comp90016 --output-dir dist
+```
+
+Preview locally:
+
+```bash
+python3 -m http.server -d dist 8000
+```
+
+Then open: `http://localhost:8000/lab`
+
+## Deployment
+
+Push to `main` to trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`.
+The workflow builds the site and deploys it to GitHub Pages.
+
+## Browser Support
 
 - Firefox 90+
 - Chromium 89+
-
-## Deploy your JupyterLite website on GitHub Pages
-
-Check out the guide on the JupyterLite documentation: https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
-
-## Further Information and Updates
-
-For more info, keep an eye on the JupyterLite documentation:
-
-- How-to Guides: https://jupyterlite.readthedocs.io/en/latest/howto/index.html
-- Reference: https://jupyterlite.readthedocs.io/en/latest/reference/index.html
-
-This template provides the Pyodide kernel (`jupyterlite-pyodide-kernel`), the JavaScript kernel (`jupyterlite-javascript-kernel`), and the p5 kernel (`jupyterlite-p5-kernel`), along with other
-optional utilities and extensions to make the JupyterLite experience more enjoyable. See the
-[`requirements.txt` file](requirements.txt) for a list of all the dependencies provided.
-
-For a template based on the Xeus kernel, see the [`jupyterlite/xeus-python-demo` repository](https://github.com/jupyterlite/xeus-python-demo)
-
-
