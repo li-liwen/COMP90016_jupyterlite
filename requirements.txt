@@ -18,9 +18,12 @@ plotly>=6,<7
 bqplot
 
 # Target browser-side scientific stack
+biopython
+fastqe
+itables
+matplotlib
 numpy
 pandas
-matplotlib
+pysam
+python-igraph
 seaborn
-biopython
-itables
