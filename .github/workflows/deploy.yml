@@ -28,7 +28,7 @@ jobs:
         run: |
           test -f dist/index.html
           test -f dist/lab/index.html
-          test -f dist/files/notebooks/00_environment_check.ipynb
+          test -f dist/files/.test_notebooks/00_environment_check.ipynb
           test -f dist/files/data/workshop/07/SARS_CoV_2_S.fasta
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
