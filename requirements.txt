@@ -27,3 +27,4 @@ pandas
 pysam
 python-igraph
 seaborn
+pyemojify
